@@ -1,0 +1,135 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+
+    <title>Test Report</title>
+    <meta charset="utf-8">
+
+    <style type="text/css">
+        body {
+            font: 100% "Courier New", Courier, monospace;
+        }
+
+        div {
+            text-align: center;
+        }
+
+        table {
+            border-collapse: collapse;
+            -webkit-box-shadow: 3px 3px 7px #055584;
+            -moz-box-shadow: 3px 3px 7px #055584;
+            box-shadow: 3px 3px 7px #055584;
+            margin:0px auto;
+        }
+
+        caption {
+            color: blue;
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: .5em;
+            text-shadow: 1px 1px 1px #c0e0f2;
+        }
+
+        tr, th, td {
+            padding: .5em .75em;
+            border: 1px solid #000;
+            text-align:center;
+        }
+
+        th {
+            font-size: 1.5em;
+            color: white;
+            background: blue;
+        }
+
+        input[type="submit"] {
+            font-size: 2em;
+            margin:auto;
+        }
+
+    </style>
+
+    <script src="result.js" type="text/javascript"></script>
+
+
+</head>
+
+<body>
+
+<!--<div>-->
+
+<table>
+    <caption>Test Result</caption>
+    <thead>
+    <tr>
+        <th scope="col">ProductName</th>
+        <th scope="rowgroup" title="Serial Number">SN</th>
+        <th scope="col" title="Software Version">SW</th>
+        <th scope="col">SKUID</th>
+        <th scope="col" title="Android Version">Android</th>
+        <th scope="col">CPUModel</th>
+        <th scope="col">SIMOperator</th>
+    </tr>
+    </thead>
+    <tbody id="deviceinfo">
+
+    </tbody>
+    <thead>
+    <tr>
+        <th scope="rowgroup">Total</th>
+        <th scope="col">Pass</th>
+        <th scope="col">Fail</th>
+        <th scope="col">Used Time</th>
+        <th scope="col" colspan="3">Pass rate</th>
+    </tr>
+
+    </thead>
+    <tbody id="resultsummary">
+
+    </tbody>
+
+
+    <thead>
+    <tr>
+        <th scope="rowgroup">Date</th>
+        <th scope="col">TC</th>
+        <th scope="col">Repeat</th>
+        <th scope="col">Result
+            <select id="resultselect" name="resultselect" onchange="init()">
+                <option value="All">All</option>
+                <option value="Pass">Pass</option>
+                <option value="Fail">Fail</option>
+            </select>
+        </th>
+        <th scope="col">Duration</th>
+        <th scope="col">FailReason</th>
+        <th scope="col">Screenshot</th>
+    </tr>
+    </thead>
+
+    <tbody id="resultbody">
+
+    </tbody>
+
+</table>
+
+<!--</div>-->
+
+<br/>
+
+<!-- <button onclick="clearResult()">Clear</button> -->
+
+<div>
+    <form method="post" action="http://zzdcdqa/uploadtestdata.php">
+
+        <input type="hidden" name="uploadresult" id="uploadresult">
+        <input type="hidden" name="uploaddeviceinfo" id="uploaddeviceinfo">
+
+        <input type="submit" value="upload" onclick="getTestResult()">
+    </form>
+
+</div>
+
+
+</body>
+</html>
